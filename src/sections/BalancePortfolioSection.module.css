@@ -469,15 +469,4 @@
     max-width: var(--folio-strip);
     flex-shrink: 0;
   }
-
-  .marqueeOuter:first-child {
-    border: 1px solid #673102;
-  }
-
-  .marqueeOuter:first-child .marqueeGroup .card:nth-child(2),
-  .marqueeOuter:last-child .marqueeGroup .card:nth-child(1),
-  .marqueeOuter:last-child .marqueeGroup .card:nth-child(2) {
-    border: 1px solid #673102;
-    box-sizing: border-box;
-  }
 }
