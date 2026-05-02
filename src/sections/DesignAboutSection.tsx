@@ -14,7 +14,7 @@ export function DesignAboutSection() {
       <div className={styles.main} data-node-id="210:551">
         <div className={styles.headlines} data-node-id="210:588" id="design-about-h">
           <p className={`${styles.hl} ${styles.hlBlack}`} data-node-id="210:553">
-            Design não é só
+            Design não é só{' '}
             <br className={styles.headlineMobileBreak} aria-hidden />
             aparência
           </p>
