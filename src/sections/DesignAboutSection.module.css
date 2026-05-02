@@ -1,0 +1,404 @@
+/* Frame 285 — node 210:549 */
+
+.section {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 833px;
+  /* Permite à linha decorativa ultrapassar à esquerda como no quadro Figma (~1446 vs vector x −446) */
+  overflow-x: visible;
+  overflow-y: clip;
+  background-color: #fffef4;
+  padding-left: 84px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.vector {
+  position: absolute;
+  left: -446.5615234375px;
+  top: -95.76171875px;
+  width: 1102.7081298828125px;
+  height: 1469.52685546875px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vector img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Texto corpo + fotografia numa linha à direita — desktop igual ao fluxo anterior */
+.bodyRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 22px;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.headlines {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 500px;
+  max-width: 100%;
+  font-family: var(--font-hero-display);
+  font-size: 40px;
+  line-height: normal;
+}
+
+.hl {
+  margin: 0;
+  width: 100%;
+}
+
+.hlBlack {
+  font-weight: 300;
+  font-style: normal;
+  color: #000;
+  text-align: center;
+}
+
+.hlAccent {
+  font-weight: 500;
+  font-style: italic;
+  color: #673102;
+}
+
+.hlRight {
+  text-align: right;
+}
+
+.hlLeft {
+  text-align: left;
+}
+
+/* Desktop: título numa linha; mobile: quebra após "só" */
+.headlineMobileBreak {
+  display: none;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: var(--font-hero-display);
+  font-size: 28px;
+  line-height: normal;
+  font-weight: 300;
+  font-style: normal;
+  color: #000;
+}
+
+.bodyLine {
+  margin: 0;
+  width: 476.25px;
+  max-width: 100%;
+}
+
+.accentItalic {
+  font-weight: 500;
+  font-style: italic;
+  color: #673102;
+}
+
+.brownPlain {
+  color: #673102;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 214px;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background-color: #673102;
+  text-decoration: none;
+}
+
+.ctaText {
+  margin: 0;
+  font-family: var(--font-hero-nav);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: normal;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  filter: brightness(1.06);
+}
+
+.imageCol {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  max-height: 753.145px;
+  flex-shrink: 0;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.imageWrap {
+  width: 508.502px;
+  height: 753.145px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Proporções nativas da foto; nunca alongar nem esmagar */
+.imageWrap img {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    height: auto;
+    overflow-x: clip;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 64px 24px;
+    gap: 40px;
+  }
+
+  /* Aproximar posição em ecrãs estreitos — evitar scroll horizontal forte */
+  .vector {
+    left: -140px;
+    top: -60px;
+    width: min(1102.7081298828125px, 160vw);
+    height: auto;
+    aspect-ratio: 1102.708 / 1469.527;
+  }
+
+  .bodyRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .bodyRow .imageCol {
+    height: auto;
+    max-height: none;
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .imageWrap {
+    width: min(508.502px, 100%);
+    height: min(753.145px, 70svh);
+  }
+
+  .imageWrap img {
+    max-height: min(753.145px, 70svh);
+  }
+}
+
+/* Figma 223:413 — Frame 67 (sobre mobile); moldura/raio iguais às outras seções */
+@media (max-width: 768px) {
+  .section {
+    --about-card: min(382px, 100%);
+    --about-accent: #704214;
+    box-sizing: border-box;
+    padding: 24px 18px 32px;
+    gap: 20px;
+    overflow-x: clip;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 0;
+    background-color: #fdfbf4;
+    border: none;
+  }
+
+  .vector {
+    left: 50%;
+    top: 38%;
+    transform: translate(-50%, -50%);
+    width: min(521.138px, 142%);
+    max-width: 155vw;
+    height: auto;
+    aspect-ratio: 521.138 / 718.067;
+    opacity: 1;
+  }
+
+  /* Foto usa .section como containing block (flush direita/baixo) */
+  .main {
+    position: static;
+    z-index: auto;
+    gap: 18px;
+    width: var(--about-card);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .headlines {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: min(320px, 100%);
+    margin: 0 auto;
+    font-size: clamp(22px, 5.6vw, 28px);
+    line-height: 1.2;
+    align-items: stretch;
+  }
+
+  .hl {
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .headlineMobileBreak {
+    display: block;
+  }
+
+  .hlBlack {
+    text-align: center;
+    min-height: 0;
+    font-weight: 400;
+  }
+
+  .hlAccent {
+    min-height: 0;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--about-accent);
+  }
+
+  .hlLeft,
+  .hlRight {
+    text-align: center;
+  }
+
+  /* Texto à esquerda + foto absoluta encostada à direita e à base da .section */
+  .bodyRow {
+    position: static;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    max-width: var(--about-card);
+    min-height: 200px;
+    margin: 0 auto;
+    flex: none;
+    padding-right: 42%;
+    padding-bottom: 4px;
+  }
+
+  .body {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    font-size: 14px;
+    line-height: 1.25;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    text-align: left;
+  }
+
+  .bodyLine {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    line-height: 1.25;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .bodyLine:last-of-type {
+    line-height: 1.25;
+    min-height: 0;
+  }
+
+  .accentItalic,
+  .brownPlain {
+    color: var(--about-accent);
+  }
+
+  .bodyRow .imageCol {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    flex-shrink: 0;
+    order: unset;
+    width: 46%;
+    max-width: 220px;
+    height: auto;
+    align-self: flex-end;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+
+  .imageWrap {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    max-height: min(260px, 55vw);
+    aspect-ratio: 130.248 / 192.911;
+  }
+
+  .imageWrap img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: min(260px, 55vw);
+    object-position: bottom right;
+    object-fit: contain;
+  }
+
+  .cta {
+    display: none;
+  }
+}

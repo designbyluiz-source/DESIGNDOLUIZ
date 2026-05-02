@@ -1,0 +1,59 @@
+/* Cursor Figma node 219:287 «Pencil» — asset /cursor/pencil-cursor.svg */
+
+.root {
+  --pencil-size: 22px;
+  /* Pico do lápis (~viewBox 100×100) — alinha com coordenadas do path no SVG exportado */
+  --hotspot-x-pct: 13;
+  --hotspot-y-pct: 90;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  contain: layout style;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.root.ready {
+  opacity: 1;
+}
+
+.inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(
+    calc(var(--hotspot-x-pct) * -1 * var(--pencil-size) / 100),
+    calc(var(--hotspot-y-pct) * -1 * var(--pencil-size) / 100)
+  );
+}
+
+.pencil {
+  display: block;
+  width: var(--pencil-size);
+  height: var(--pencil-size);
+  object-fit: contain;
+  transition: transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: calc(var(--hotspot-x-pct) * 1%) calc(var(--hotspot-y-pct) * 1%);
+}
+
+.root.interactive {
+  --pencil-size: 28px;
+}
+
+.root.interactive .pencil {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    display: none;
+  }
+
+  .pencil {
+    transition: none;
+  }
+}

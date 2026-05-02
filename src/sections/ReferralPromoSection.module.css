@@ -1,0 +1,206 @@
+/* Frame 229 — node 216:89 (MCP) */
+
+.section {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  /* Tom de segurança se a imagem não carregar */
+  background-color: #4a2918;
+  padding: clamp(56px, 9vw, 96px) clamp(24px, 6vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Evita o browser “reancorar” o scroll quando o Lottie mede/redimensiona ao entrar na view */
+  overflow-anchor: none;
+}
+
+/* Textura (retrato) rodada 90° + cover = fill na faixa horizontal; ficheiro = original Unsplash alta resolução */
+.section::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  /* ~2× maior dimensão do ecrã: cobre cantos após rotate(90deg) sem megacamadas */
+  width: 200vmax;
+  height: 200vmax;
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center center;
+  background-image: url('/promo/promo-texture-full.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* Melhor redução de escala quando o browser suporta (Chrome recente, etc.) */
+  image-rendering: high-quality;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+@supports not (image-rendering: high-quality) {
+  .section::before {
+    image-rendering: auto;
+  }
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  /* Figura ao ~45% da faixa útil à direita; texto à esquerda com bastante espaço — como no Figma */
+  grid-template-columns: minmax(0, 1.15fr) minmax(min(260px, 42vw), 0.92fr);
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: none;
+  column-gap: clamp(24px, 4vw, 48px);
+  row-gap: 24px;
+  align-items: center;
+  justify-content: stretch;
+  min-width: 0;
+}
+
+.columnCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+  justify-self: start;
+  align-self: center;
+  max-width: min(565.396px, 100%);
+}
+
+.titleBlock {
+  margin: 0;
+  width: 100%;
+  max-width: 426.271px;
+  font-family: var(--font-hero-display);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 73px;
+  line-height: 65px;
+  color: #fff;
+}
+
+.titleLine1 {
+  margin: 0;
+  line-height: 65px;
+}
+
+.titleAccent {
+  margin: 0;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 65px;
+}
+
+.body {
+  margin: 0;
+  width: 100%;
+  max-width: 565.396px;
+  font-family: var(--font-hero-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #fff;
+  white-space: pre-wrap;
+}
+
+.body p {
+  margin: 0 0 0.25em;
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ctaText {
+  margin: 0;
+  font-family: var(--font-hero-nav);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: normal;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Arte centrada na coluna direita, peso visual semelhante ao bloco de texto — evita altura “0 → salto” */
+.lottieWrap {
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  max-width: min(520px, min(100%, 48vw));
+  aspect-ratio: 1;
+  min-width: min(240px, 100%);
+  /* Reserva de espaço antes do Lottie carregar (reduce layout shift) */
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottieCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 30px 20px;
+  }
+
+  .titleBlock {
+    font-size: clamp(32px, 8vw, 48px);
+    line-height: 1.05;
+  }
+
+  .titleLine1,
+  .titleAccent {
+    line-height: 1.05;
+  }
+
+  .body {
+    font-size: clamp(16px, 3.8vw, 22px);
+  }
+}
+
+/* Só uma coluna em telemóveis; ≥561px mantém texto + Lottie em linha (grid) */
+@media (max-width: 560px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .columnCopy {
+    max-width: 100%;
+  }
+
+  .lottieWrap {
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 1;
+    min-height: min(72vw, 380px);
+    max-height: min(88vw, 420px);
+  }
+}

@@ -1,0 +1,389 @@
+/* Valores extraídos do Figma (frame 213:26) via MCP — sem Tailwind */
+
+.hero {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 833px;
+  overflow: clip;
+  background-color: #fffef4;
+  padding: 92px 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+}
+
+.lineDecor {
+  position: absolute;
+  left: 225.2px;
+  top: -76.26px;
+  width: 1068.685px;
+  height: 1472.522px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lineDecor img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  align-self: stretch;
+}
+
+.headerRight {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  margin: 0;
+  font-family: var(--font-hero-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 33px;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #673102;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.navLink {
+  margin: 0;
+  font-family: var(--font-hero-nav);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: normal;
+  color: #3b3b3b;
+  white-space: nowrap;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navLink:hover {
+  opacity: 0.85;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #673102;
+  margin: 0;
+  font-family: var(--font-hero-nav);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: normal;
+  color: #fff;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  flex-shrink: 0;
+}
+
+.cta:hover {
+  filter: brightness(1.06);
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
+  max-width: 768px;
+}
+
+.heroCore {
+  position: relative;
+  width: 768px;
+  max-width: 100%;
+  height: 382px;
+  flex-shrink: 0;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 595.082px;
+  max-width: 100%;
+  font-family: var(--font-hero-display);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 60px;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000;
+}
+
+.copyLine {
+  margin: 0;
+  width: 595.082px;
+  max-width: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  line-height: normal;
+}
+
+.copyLineAccent {
+  text-align: center;
+}
+
+.copyLineAccentRight {
+  text-align: right;
+}
+
+.highlight {
+  font-family: var(--font-hero-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: inherit;
+  line-height: normal;
+  color: #673102;
+}
+
+.portraitWrap {
+  position: absolute;
+  left: 528.61px;
+  top: -53.38px;
+  width: 212.746px;
+  height: 212.746px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tablet médio apenas — preserva hero desktop em telas grandes */
+@media (max-width: 960px) and (min-width: 769px) {
+  .hero {
+    height: auto;
+    min-height: 640px;
+    padding: 56px 24px;
+    gap: 32px;
+  }
+
+  .lineDecor {
+    left: 50%;
+    transform: translateX(-42%);
+    width: min(1068.685px, 140vw);
+    height: auto;
+    aspect-ratio: 1068.685 / 1472.522;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .heroCore {
+    height: auto;
+    min-height: 382px;
+  }
+
+  .portraitWrap {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .copy {
+    font-size: clamp(32px, 8vw, 60px);
+  }
+}
+
+/* Mobile — mockup iPhone (cream #FDFBF4, moldura castanha, nav + CTA em linha) */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    padding: 24px 18px 32px;
+    gap: 28px;
+    background-color: #fdfbf4;
+    /* Igual às outras cartas: raio + clip no mesmo nó do fundo (#sobre, etc.) */
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .lineDecor {
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    width: min(521.138px, 135vw);
+    height: auto;
+    aspect-ratio: 521.138 / 718.067;
+    opacity: 0.95;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .logo {
+    text-align: center;
+    align-self: center;
+    color: #4b2c00;
+    font-size: clamp(26px, 7.2vw, 33px);
+    letter-spacing: 0.02em;
+  }
+
+  .headerRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: clamp(6px, 2.5vw, 12px);
+    flex: 1;
+    min-width: 0;
+  }
+
+  .navLink {
+    font-size: clamp(10px, 2.9vw, 13px);
+    color: #3b3b3b;
+  }
+
+  .navLinkDesconto {
+    display: none;
+  }
+
+  .cta {
+    flex-shrink: 0;
+    padding: 10px 14px;
+    background-color: #b25000;
+    box-shadow: 4px 5px 0 rgba(43, 24, 0, 0.38);
+  }
+
+  .cta:hover {
+    filter: brightness(1.05);
+  }
+
+  .main {
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .heroCore {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(332px, 100%);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+    gap: 0;
+  }
+
+  /* Foto em cima, texto em baixo — sem absolute, sem sobreposição */
+  .portraitWrap {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    order: -1;
+    width: 132px;
+    height: 132px;
+    margin: 0 0 20px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(75, 44, 0, 0.12);
+  }
+
+  .copy {
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+    max-width: 332px;
+    font-size: clamp(26px, 7.5vw, 30px);
+    font-weight: 300;
+    color: #000;
+  }
+
+  .copyLine {
+    width: 100%;
+    max-width: 100%;
+    font-size: inherit;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .copyLineAccent,
+  .copyLineAccentRight {
+    text-align: center;
+  }
+
+  .highlight {
+    color: #4b2c00;
+  }
+}

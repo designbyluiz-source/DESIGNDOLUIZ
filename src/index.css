@@ -1,0 +1,47 @@
+:root {
+  /* Tipografia web: próxima ao Figma (Gilroy → Montserrat) */
+  --font-hero-display: 'Montserrat', system-ui, sans-serif;
+  --font-hero-nav: 'Space Grotesk', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  background: #fffef4;
+  color-scheme: light only;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: #4b2c00;
+  }
+}
+
+#root {
+  min-height: 100svh;
+  width: 100%;
+}
+
+/* Cursor de página — desativado para touch ou reduced-motion pelo componente */
+html.has-custom-cursor body {
+  cursor: none !important;
+}
+
+html.has-custom-cursor input:not([type]):not([readonly]):not([disabled]),
+html.has-custom-cursor input:is([type='text'], [type='search'], [type='email'], [type='url'], [type='tel'], [type='password'], [type='number']):not([readonly]):not([disabled]),
+html.has-custom-cursor textarea:not([readonly]):not([disabled]) {
+  cursor: text !important;
+}

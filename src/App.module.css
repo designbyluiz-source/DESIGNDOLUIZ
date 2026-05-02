@@ -1,0 +1,33 @@
+.page {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  background-color: #fffef4;
+}
+
+/* Mobile — moldura castanha (#4b2c00) e cartões arredondados */
+@media (max-width: 768px) {
+  .page {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #4b2c00;
+  }
+
+  /* Hero: raio e clip ficam no .hero (mesmo elemento do fundo), como nas outras secções */
+  .page > #inicio {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .page > section {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}

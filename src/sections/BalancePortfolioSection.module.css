@@ -1,0 +1,483 @@
+/* Frame 284 — node 208:458 (pixel values do MCP) */
+
+.section {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 833px;
+  overflow: clip;
+  background-color: #fffef4;
+  padding: 92px 0 92px 84px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 22px;
+}
+
+.vector {
+  position: absolute;
+  left: -97.96px;
+  top: -76.26px;
+  width: 1072.579px;
+  height: 1472.522px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vector img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.gradTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 107.41px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #fffef4 0%,
+    #fffef4 17.111%,
+    rgba(255, 254, 244, 0) 100%
+  );
+}
+
+.gradBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 107.41px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gradBottomInner {
+  width: 100%;
+  height: 100%;
+  transform: scaleY(-1);
+  background: linear-gradient(
+    180deg,
+    #fffef4 0%,
+    #fffef4 17.111%,
+    rgba(255, 254, 244, 0) 100%
+  );
+}
+
+/* Fades do carrossel — só usados no mobile (desktop mantém .gradTop / .gradBottom na secção) */
+.carouselFadeTop,
+.carouselFadeBottom {
+  display: none;
+}
+
+.columnCopy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 600px;
+  max-width: 100%;
+  font-family: var(--font-hero-display);
+  font-size: 50px;
+  line-height: normal;
+  font-weight: 300;
+  font-style: normal;
+  color: #000;
+}
+
+.copyLine {
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  line-height: normal;
+}
+
+.lineCenter {
+  text-align: center;
+}
+
+.lineRight {
+  text-align: right;
+}
+
+.accentItalic {
+  font-family: var(--font-hero-display);
+  font-weight: 500;
+  font-style: italic;
+  color: #673102;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 214px;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background-color: #673102;
+  text-decoration: none;
+}
+
+.ctaText {
+  margin: 0;
+  font-family: var(--font-hero-nav);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: normal;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  filter: brightness(1.06);
+}
+
+.carouselShell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 787.811px;
+  flex-shrink: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: clamp(520px, 78vh, 656px);
+  max-height: 656px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.rotator {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(16.05deg);
+  transform-origin: center center;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* Área mascarada: carrosseis verticais infinitos */
+.marqueeOuter {
+  overflow: hidden;
+  width: 296.509px;
+  flex-shrink: 0;
+  height: 100%;
+  min-height: 320px;
+  box-sizing: border-box;
+}
+
+.marqueeTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  will-change: transform;
+}
+
+.marqueeDown {
+  animation: portfolio-marquee-down 42s linear infinite;
+}
+
+.marqueeUp {
+  animation: portfolio-marquee-up 54s linear infinite;
+  animation-delay: -14s;
+}
+
+.marqueeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+@keyframes portfolio-marquee-down {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes portfolio-marquee-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeDown,
+  .marqueeUp {
+    animation: none !important;
+  }
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* aspect-ratio ≈ MCP */
+.arNicole {
+  aspect-ratio: 1446 / 3737;
+}
+
+.arAmbar {
+  aspect-ratio: 883 / 4096;
+}
+
+.arPaola {
+  aspect-ratio: 1381 / 4096;
+}
+
+.cardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    height: auto;
+    min-height: 640px;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 64px 24px;
+    gap: 40px;
+  }
+
+  .columnCopy {
+    align-self: center;
+    width: 100%;
+  }
+
+  .carouselShell {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    height: min(460px, 58vh);
+    min-height: 360px;
+  }
+
+  .rotator {
+    transform: rotate(8deg);
+  }
+
+  .marqueeOuter {
+    width: min(296px, 46vw);
+  }
+}
+
+/* Mobile — carrossel infinito como desktop + fades no topo/base do carrossel */
+@media (max-width: 768px) {
+  .section {
+    --folio-strip: 200px;
+    --folio-gap: 40px;
+    --folio-carousel: min(501.807px, 100%);
+    box-sizing: border-box;
+    padding: 30px 0;
+    gap: 24px;
+    min-height: 0;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: clip;
+  }
+
+  .vector {
+    left: 50%;
+    top: calc(50% + 0.47px);
+    transform: translate(-50%, -50%);
+    width: 521.138px;
+    max-width: 155vw;
+    height: auto;
+    aspect-ratio: 521.138 / 718.067;
+    opacity: 0.95;
+  }
+
+  /* No mobile os degradês globais da secção ficam ocultos; o fade é só no carrossel */
+  .gradTop,
+  .gradBottom {
+    display: none;
+  }
+
+  .columnCopy {
+    width: 321.927px;
+    max-width: calc(100% - 24px);
+    margin: 0 auto;
+    padding: 0 18px;
+    gap: 44px;
+    flex-shrink: 0;
+  }
+
+  .copy {
+    width: 321.927px;
+    max-width: 100%;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: normal;
+  }
+
+  .copyLine {
+    line-height: normal;
+  }
+
+  .cta {
+    box-sizing: border-box;
+    width: 214px;
+    min-height: 37px;
+    margin: 0 auto;
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #673102;
+    box-shadow: 2px 3px 0 rgba(43, 24, 0, 0.22);
+  }
+
+  .cta:hover {
+    filter: brightness(1.06);
+  }
+
+  .carouselShell {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--folio-carousel);
+    max-width: 100%;
+    height: 460.054px;
+    min-height: 460.054px;
+    margin: 0 auto;
+    overflow: visible;
+    align-self: stretch;
+  }
+
+  /* Fades no topo e em baixo do carrossel (mesma cor que a secção) */
+  .carouselFadeTop,
+  .carouselFadeBottom {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 107.41px;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .carouselFadeTop {
+    top: 0;
+    background: linear-gradient(
+      180deg,
+      #fffef4 0%,
+      #fffef4 17.111%,
+      rgba(255, 254, 244, 0) 100%
+    );
+  }
+
+  .carouselFadeBottom {
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      #fffef4 0%,
+      #fffef4 17.111%,
+      rgba(255, 254, 244, 0) 100%
+    );
+  }
+
+  .rotator {
+    position: relative;
+    z-index: 0;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 100%;
+    flex: none;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(10.2deg)
+      scale(min(1, calc((100vw - 32px) / 440)));
+    transform-origin: center center;
+  }
+
+  .columns {
+    width: calc(var(--folio-strip) * 2 + var(--folio-gap));
+    max-width: 100%;
+    height: 388.268px;
+    gap: var(--folio-gap);
+    align-items: center;
+    align-self: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .marqueeOuter {
+    box-sizing: border-box;
+    width: var(--folio-strip);
+    flex: 0 0 var(--folio-strip);
+    height: 388.268px;
+    min-height: 388.268px;
+  }
+
+  .marqueeTrack,
+  .marqueeGroup {
+    gap: var(--folio-gap);
+  }
+
+  .marqueeOuter .card {
+    width: var(--folio-strip);
+    max-width: var(--folio-strip);
+    flex-shrink: 0;
+  }
+
+  .marqueeOuter:first-child {
+    border: 1px solid #673102;
+  }
+
+  .marqueeOuter:first-child .marqueeGroup .card:nth-child(2),
+  .marqueeOuter:last-child .marqueeGroup .card:nth-child(1),
+  .marqueeOuter:last-child .marqueeGroup .card:nth-child(2) {
+    border: 1px solid #673102;
+    box-sizing: border-box;
+  }
+}
