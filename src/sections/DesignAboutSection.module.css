@@ -1,20 +1,21 @@
-/* Frame 285 — node 210:549 */
+/*
+ * Desktop: Figma 210:549 — vector + coluna texto (210:551) + foto (210:573), gap 22, pl 84
+ * Mobile: inalterado visualmente — apenas selectores atualizados ao novo DOM (sem bodyRow/leftStack)
+ */
 
 .section {
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  height: 833px;
-  /* Permite à linha decorativa ultrapassar à esquerda como no quadro Figma (~1446 vs vector x −446) */
-  overflow-x: visible;
-  overflow-y: clip;
   background-color: #fffef4;
   padding-left: 84px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
-  gap: 0;
+  gap: 22px;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .vector {
@@ -34,6 +35,7 @@
   object-fit: fill;
 }
 
+/* 210:551 — só texto + CTA */
 .main {
   position: relative;
   z-index: 1;
@@ -42,22 +44,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 50px;
-}
-
-/* Texto corpo + fotografia numa linha à direita — desktop igual ao fluxo anterior */
-.bodyRow {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  gap: 22px;
-  width: 100%;
-  flex: 1 1 auto;
-  min-height: 0;
+  /* Sem padding inferior: a secção fecha à altura da imagem (desktop) */
+  padding: 92px 0 0;
+  box-sizing: border-box;
 }
 
 .headlines {
@@ -93,20 +84,16 @@
   text-align: right;
 }
 
-.hlLeft {
-  text-align: left;
-}
-
-/* Desktop: título numa linha; mobile: quebra após "só" */
 .headlineMobileBreak {
   display: none;
 }
 
+/* 210:582 */
 .body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   font-family: var(--font-hero-display);
   font-size: 28px;
@@ -114,6 +101,7 @@
   font-weight: 300;
   font-style: normal;
   color: #000;
+  text-align: left;
 }
 
 .bodyLine {
@@ -132,6 +120,7 @@
   color: #673102;
 }
 
+/* 210:596 */
 .cta {
   display: inline-flex;
   align-items: center;
@@ -157,12 +146,14 @@
   filter: brightness(1.06);
 }
 
+/* 210:573 — coluna foto, alinhada à base (altura = conteúdo, sem min forçado) */
 .imageCol {
   position: relative;
   z-index: 1;
+  align-self: flex-end;
   display: flex;
-  height: 100%;
-  max-height: 753.145px;
+  height: auto;
+  min-height: 0;
   flex-shrink: 0;
   align-items: flex-end;
   justify-content: center;
@@ -176,33 +167,41 @@
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
-/* Proporções nativas da foto; nunca alongar nem esmagar */
 .imageWrap img {
   display: block;
-  min-width: 0;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
   object-position: bottom center;
   pointer-events: none;
 }
 
 @media (max-width: 1200px) {
   .section {
-    height: auto;
-    overflow-x: clip;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: stretch;
+    justify-content: flex-start;
+    min-height: 0;
+    height: auto;
     padding: 64px 24px;
+    padding-left: 24px;
+    gap: 40px;
+    overflow-x: clip;
+  }
+
+  .main {
+    align-items: center;
+    padding: 0;
     gap: 40px;
   }
 
-  /* Aproximar posição em ecrãs estreitos — evitar scroll horizontal forte */
   .vector {
     left: -140px;
     top: -60px;
@@ -211,16 +210,10 @@
     aspect-ratio: 1102.708 / 1469.527;
   }
 
-  .bodyRow {
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
-  }
-
-  .bodyRow .imageCol {
-    height: auto;
-    max-height: none;
+  .imageCol {
     order: -1;
+    align-self: center;
+    min-height: 0;
     width: 100%;
     justify-content: center;
   }
@@ -231,11 +224,27 @@
   }
 
   .imageWrap img {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    max-width: 100%;
     max-height: min(753.145px, 70svh);
+    object-fit: contain;
   }
 }
 
-/* Figma 223:413 — Frame 67 (sobre mobile); moldura/raio iguais às outras seções */
+/*
+ * Desktop/tablet: o .vector (absolute, ~1470px de altura) ficava com overflow-y: visible e
+ * estendia a área de scroll da página para lá do bloco real da secção — faixa creme “fantasma”.
+ * Mobile (≤768) mantém overflow da secção inalterado nas regras abaixo.
+ */
+@media (min-width: 769px) {
+  .section {
+    overflow: clip;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     --about-card: min(382px, 100%);
@@ -263,7 +272,6 @@
     opacity: 1;
   }
 
-  /* Foto usa .section como containing block (flush direita/baixo) */
   .main {
     position: static;
     z-index: auto;
@@ -271,6 +279,12 @@
     width: var(--about-card);
     max-width: 100%;
     margin: 0 auto;
+    padding: 0;
+    padding-right: 42%;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex: none;
+    min-height: 200px;
   }
 
   .headlines {
@@ -307,27 +321,6 @@
     color: var(--about-accent);
   }
 
-  .hlLeft,
-  .hlRight {
-    text-align: center;
-  }
-
-  /* Texto à esquerda + foto absoluta encostada à direita e à base da .section */
-  .bodyRow {
-    position: static;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 0;
-    width: 100%;
-    max-width: var(--about-card);
-    min-height: 200px;
-    margin: 0 auto;
-    flex: none;
-    padding-right: 42%;
-    padding-bottom: 4px;
-  }
-
   .body {
     box-sizing: border-box;
     position: relative;
@@ -359,20 +352,24 @@
     min-height: 0;
   }
 
+  .accentItalic {
+    font-weight: 500;
+  }
+
   .accentItalic,
   .brownPlain {
     color: var(--about-accent);
   }
 
-  .bodyRow .imageCol {
+  .imageCol {
     position: absolute;
     right: 0;
     bottom: 0;
     z-index: 1;
-    flex-shrink: 0;
     order: unset;
     width: 46%;
     max-width: 220px;
+    min-height: 0;
     height: auto;
     align-self: flex-end;
     align-items: flex-end;
@@ -387,9 +384,12 @@
     min-height: 0;
     max-height: min(260px, 55vw);
     aspect-ratio: 130.248 / 192.911;
+    overflow: visible;
   }
 
   .imageWrap img {
+    position: relative;
+    inset: auto;
     width: 100%;
     height: 100%;
     max-width: 100%;
@@ -400,5 +400,82 @@
 
   .cta {
     display: none;
+  }
+}
+
+/*
+ * Desktop largo: evitar faixa creme por baixo do texto quando o texto é mais baixo que a foto,
+ * e por baixo da foto quando o texto é mais alto — grid + align-self misto (sem stretch na .main).
+ */
+@media (min-width: 1201px) {
+  .section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    align-items: stretch;
+    align-content: stretch;
+    justify-items: stretch;
+    gap: clamp(16px, 2.5vw, 40px);
+    min-height: 0;
+    padding-left: clamp(56px, 7vw, 96px);
+    padding-right: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    flex-direction: unset;
+    justify-content: unset;
+  }
+
+  /* Bloco texto + CTA centrado na área à esquerda da foto (referência Figma) */
+  .main {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    width: min(100%, 540px);
+    flex: none;
+    justify-content: flex-start;
+    height: max-content;
+    min-height: 0;
+    padding: clamp(48px, 7vw, 92px) 0 clamp(22px, 2.2vw, 36px);
+    box-sizing: border-box;
+  }
+
+  /* Foto encostada ao canto inferior direito da secção */
+  .imageCol {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .imageWrap {
+    flex: 0 0 auto;
+    width: 508.502px;
+    height: 753.145px;
+    min-height: 0;
+    align-self: flex-end;
+  }
+
+  .imageWrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: bottom right;
+    pointer-events: none;
+  }
+
+  .cta {
+    box-shadow: 0 4px 18px rgba(103, 49, 2, 0.14);
   }
 }

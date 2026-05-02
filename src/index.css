@@ -35,6 +35,17 @@ body {
   width: 100%;
 }
 
+/*
+ * Desktop/tablet: #root segue só o conteúdo (sem min 100svh).
+ * Mobile mantém min-height: 100svh na regra base acima.
+ */
+@media (min-width: 769px) {
+  #root {
+    min-height: unset;
+    height: fit-content;
+  }
+}
+
 /* Cursor de página — desativado para touch ou reduced-motion pelo componente */
 html.has-custom-cursor body {
   cursor: none !important;
