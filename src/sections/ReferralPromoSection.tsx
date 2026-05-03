@@ -1,10 +1,45 @@
+import { useCallback, useState } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import styles from './ReferralPromoSection.module.css'
 
 const PROMO_LOTTIE_SRC =
   'https://lottie.host/44305eb3-a471-46df-ae57-6fa443a932af/leBtQCg2ds.lottie'
 
+/** Colado no clipboard ao clicar em «Indicar para alguém» */
+const SHARE_CLIPBOARD_LINK = 'wa.me/5541987160509'
+
+async function copyShareLink(text: string): Promise<void> {
+  try {
+    await navigator.clipboard.writeText(text)
+    return
+  } catch {
+    /* clipboard pode falhar em contextos não seguros — fallback */
+  }
+  const ta = document.createElement('textarea')
+  ta.value = text
+  ta.setAttribute('readonly', '')
+  ta.style.position = 'fixed'
+  ta.style.left = '-9999px'
+  document.body.appendChild(ta)
+  ta.select()
+  const ok = document.execCommand('copy')
+  document.body.removeChild(ta)
+  if (!ok) throw new Error('copy failed')
+}
+
 export function ReferralPromoSection() {
+  const [copied, setCopied] = useState(false)
+
+  const handleIndicarClick = useCallback(async () => {
+    try {
+      await copyShareLink(SHARE_CLIPBOARD_LINK)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 4500)
+    } catch {
+      /* sem feedback extra — utilizador pode tentar de novo */
+    }
+  }, [])
+
   return (
     <section
       id="desconto"
@@ -28,11 +63,17 @@ export function ReferralPromoSection() {
             </p>
             <p>e você ganha um desconto de 30% no seu projeto</p>
           </div>
-          <a className={styles.cta} href="#contato" data-node-id="216:96">
+          <button
+            type="button"
+            className={`${styles.cta} ${copied ? styles.ctaCopied : ''}`}
+            onClick={handleIndicarClick}
+            data-node-id="216:96"
+            aria-live="polite"
+          >
             <span className={styles.ctaText} data-node-id="216:97">
-              INDICAR PARA ALGUEM
+              {copied ? 'Link copiado com sucesso!' : 'INDICAR PARA ALGUEM'}
             </span>
-          </a>
+          </button>
         </div>
 
         <div className={styles.lottieWrap} data-node-id="216:98" role="presentation">

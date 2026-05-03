@@ -4,6 +4,7 @@ import { HeroSection } from './sections/HeroSection'
 import { BalancePortfolioSection } from './sections/BalancePortfolioSection'
 import { ReferralPromoSection } from './sections/ReferralPromoSection'
 import { DesignAboutSection } from './sections/DesignAboutSection'
+import { FooterSection } from './sections/FooterSection'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <BalancePortfolioSection />
         <ReferralPromoSection />
         <DesignAboutSection />
+        <FooterSection />
       </div>
     </>
   )

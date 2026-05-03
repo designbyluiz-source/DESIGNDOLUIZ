@@ -126,6 +126,13 @@
   background: transparent;
   text-decoration: none;
   cursor: pointer;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .ctaText {
@@ -140,6 +147,24 @@
 
 .cta:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Após copiar o link (wa.me) — fundo branco, texto marrom */
+.ctaCopied {
+  background: #fff;
+  border-color: #fff;
+}
+
+.ctaCopied .ctaText {
+  color: #673102;
+  white-space: normal;
+  text-align: center;
+  max-width: min(280px, 100%);
+}
+
+.ctaCopied:hover {
+  background: #fff;
+  filter: none;
 }
 
 /* Arte centrada na coluna direita, peso visual semelhante ao bloco de texto — evita altura “0 → salto” */

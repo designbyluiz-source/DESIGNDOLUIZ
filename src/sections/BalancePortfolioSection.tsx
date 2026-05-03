@@ -101,7 +101,13 @@ export function BalancePortfolioSection() {
             <span className={styles.accentItalic}>sua marca!</span>
           </p>
         </div>
-        <a className={styles.cta} href="#contato" data-node-id="210:592">
+        <a
+          className={styles.cta}
+          href="https://wa.me/5541987160509"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-node-id="210:592"
+        >
           <span className={styles.ctaText} data-node-id="210:593">
             FALE COMIGO
           </span>

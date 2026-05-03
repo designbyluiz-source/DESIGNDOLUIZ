@@ -29,7 +29,13 @@ export function HeroSection() {
               SOBRE MIM
             </a>
           </nav>
-          <a className={styles.cta} href="#contato" data-node-id="213:34">
+          <a
+            className={styles.cta}
+            href="https://wa.me/5541987160509"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-node-id="213:34"
+          >
             <span data-node-id="213:35">FALE COMIGO</span>
           </a>
         </div>
